@@ -22,7 +22,8 @@ def print_board(list1):
             print("")
     return None
 
-def confirm_change(list1):
+
+def confirm_change(list1): #this can be simplified, if in ops we use num==0 to replace for checking
     changed_line=[]
     result=[]
     for line in list1:
@@ -34,6 +35,7 @@ def confirm_change(list1):
         result.append(changed_line)
         changed_line=[]
     return result
+
 
 def sqaure_list(list1):    
     #Can use another more efficient way next time!
