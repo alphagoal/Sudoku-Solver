@@ -81,6 +81,7 @@ def ops(num, bo_confi, bo_row, bo_col, bo_sq):
         num = 0   
     return num
 
+#record git hub
 
 def sol_bo (prob):
     bo_confi=confirm_change(prob)
