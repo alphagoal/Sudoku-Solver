@@ -1,10 +1,11 @@
 import solver
 import time
 import copy
-from solver import print_board, sqaure_list,column_list, confirm_change, ops,sol_bo,countdown
+from solver import print_board, sqaure_list,column_list, confirm_change, ops,sol_bo,countdown, load_txt
 
 # define problem
-prob=[[0,0,6,0,9,0,2,0,0],[0,0,0,7,0,2,0,0,0],[0,9,0,5,0,8,0,7,0],[9,0,0,0,3,0,0,0,6],[7,5,0,0,0,0,0,1,9],[1,0,0,0,4,0,0,0,5],[0,1,0,3,0,9,0,8,0],[0,0,0,2,0,1,0,0,0],[0,0,9,0,8,0,1,0,0]]
+#prob=[[0,0,6,0,9,0,2,0,0],[0,0,0,7,0,2,0,0,0],[0,9,0,5,0,8,0,7,0],[9,0,0,0,3,0,0,0,6],[7,5,0,0,0,0,0,1,9],[1,0,0,0,4,0,0,0,5],[0,1,0,3,0,9,0,8,0],[0,0,0,2,0,1,0,0,0],[0,0,9,0,8,0,1,0,0]]
+prob=load_txt()
 org_bo=copy.deepcopy(prob)  #<--- This is deep copy (will not update any changes)
 #org_bo=list(prob) or org_bo= prob.copy() <--- This is shallow copy (will reflect value change)
 #org_bo=prob <--- This is clone (will reflect all change)

@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 import time
 
 def print_board(list1):
@@ -183,9 +184,88 @@ def countdown(time_sec):
         time_sec -= 1
 
     #print("stop")
-
 #countdown(5)
 
+def load_txt():
+    
+    preference = NULL
+    while preference != "1" and preference !="2":
+        preference = input("Choose your preferred setting:\n \
+1. Run Default txt file\n \
+2. Run your preferred txt file (in same directory)\n")
+        
+        #print(type(preference))
+        #print("Your preference is:",preference)
+
+        if preference =="1":
+            txt_path = "case_1.txt"
+
+        elif preference =="2":
+            txt_path = input("Choose your preferred txt file (in same directory):")
+
+        else:
+            print("Wrong Input. Reloading Request...")
+
+    
+    #txt_path = input("Please input the file path: ")
+    #f=open(r'D:\User\Desktop\Python\proj_start\sudoku\sudoku\case_1.txt') 
+    #because in ptrhon this char "\" may clash with other command, we need to slightly change the syntax  or use \\ or / in the directory
+     
+
+    try:
+        f=open(txt_path,"r")
+    except FileNotFoundError:
+        print(f"Sorry, the file '{txt_path}' does not exist in current directory.\n\n Reloading Request...\n")
+        load_txt()
+
+
+    board =list(f)
+
+    if len(board)!=9:
+        print("File is not in correct format. Restarting Request ...")
+        load_txt()
+
+    for x in range(8):
+        if len(board[x])!=18:
+            print("File is not in correct format. Restarting Request ...")
+            load_txt()   
+ 
+
+
+
+    #print(board)
+
+    #print(f"The length of board is: {len(board)}" )
+    
+    #print(board[0])
+    #print(len(board[0]))
+
+    new_board=[]
+        
+    for k in range (len(board)):
+        n=0
+        new_line=[]
+        for x in board[k]:
+            if n%2==0:
+                new_line.append(int(x))
+            n+=1
+        new_board.append(new_line)
+
+    
+
+
+    #print(f"The length of each line is: {len(board[0])}")
+    #print(f"The value of board[0][0] is: {board[0][0]}")
+    #print(f"The value of board[0][5] is: {board[0][5]}")
+    
+    #print(new_board)
+    #print(new_board[0][2]+new_board[1][3])
+
+    f.close
+
+    return new_board
+
+#load_txt()
 
 """
 list1= [8,7,5]
@@ -201,3 +281,6 @@ This is a comment
 written in
 more than just one line
 """
+        #check values
+        #print(f"The {n} value is {x}.")
+        #print("The type of value is:",type(x),end='\n')
